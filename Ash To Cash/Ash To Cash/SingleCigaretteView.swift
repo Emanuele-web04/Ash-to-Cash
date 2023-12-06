@@ -15,7 +15,7 @@ struct SingleCigaretteView: View {
         HStack {
             VStack(alignment: .leading) {
                 Text(cigarette.cigaretteName)
-                Text("\(cigarette.priceCigarette)")
+                Text(String(format: "%.2f", cigarette.priceCigarette))
                     .font(.caption)
             }
             Spacer()

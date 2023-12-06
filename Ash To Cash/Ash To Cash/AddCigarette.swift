@@ -24,7 +24,6 @@ struct AddCigarette: View {
                 }
                 Section {
                     TextField("Money Spent", value: $cigarette.priceCigarette, formatter: NumberFormatter.currency)
-                        .textFieldStyle(RoundedBorderTextFieldStyle())
                 }
                 Section {
                     Picker("Emotion", selection: $selectedEmotion) {

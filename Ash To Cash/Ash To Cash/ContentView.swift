@@ -44,25 +44,28 @@ struct ContentView: View {
                                         } label: {
                                             Image(systemName: "bin")
                                         }
-
+                                        
                                     }
                             }
                             
                         } header: {
                             
-                            VStack(alignment: .center) {
+                            HStack(alignment: .center) {
                                 Text("\(cigarettes.count)")
                                     .font(.system(size: 96))
+                                    .foregroundStyle(.black)
+                                Spacer()
+                                VStack(alignment: .trailing) {
+                                    Text("Average Mood")
+                                    withAnimation {
+                                        Text(averageEmoji)
+                                            .font(.largeTitle)
+                                    }
+                                }
                             }
-                        }
-                        Section {
-                            Text(averageEmoji)
-                        } header: {
-                            Text("Average Emotion:")
                         }
                     }
                 }
-                .padding()
                 .navigationTitle("Cigarette")
                 .toolbar {
                     ToolbarItem (placement: .navigationBarTrailing) {
