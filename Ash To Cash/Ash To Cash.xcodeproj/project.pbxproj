@@ -11,6 +11,7 @@
 		C0969FD72B1F86340028BD61 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0969FD62B1F86340028BD61 /* ContentView.swift */; };
 		C0969FD92B1F86340028BD61 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C0969FD82B1F86340028BD61 /* Assets.xcassets */; };
 		C0969FDC2B1F86340028BD61 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C0969FDB2B1F86340028BD61 /* Preview Assets.xcassets */; };
+		C0BF53E92B2868F500C13C29 /* OnBoarding.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0BF53E82B2868F500C13C29 /* OnBoarding.swift */; };
 		C0C09C352B20692300AD7332 /* AddCigarette.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0C09C342B20692300AD7332 /* AddCigarette.swift */; };
 		C0C09C372B20697E00AD7332 /* CigaretteStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0C09C362B20697E00AD7332 /* CigaretteStore.swift */; };
 		C0C09C392B207CC100AD7332 /* SingleCigaretteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0C09C382B207CC100AD7332 /* SingleCigaretteView.swift */; };
@@ -23,6 +24,7 @@
 		C0969FD62B1F86340028BD61 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		C0969FD82B1F86340028BD61 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C0969FDB2B1F86340028BD61 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		C0BF53E82B2868F500C13C29 /* OnBoarding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnBoarding.swift; sourceTree = "<group>"; };
 		C0C09C342B20692300AD7332 /* AddCigarette.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCigarette.swift; sourceTree = "<group>"; };
 		C0C09C362B20697E00AD7332 /* CigaretteStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CigaretteStore.swift; sourceTree = "<group>"; };
 		C0C09C382B207CC100AD7332 /* SingleCigaretteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleCigaretteView.swift; sourceTree = "<group>"; };
@@ -61,6 +63,7 @@
 			children = (
 				C0969FD42B1F86340028BD61 /* Ash_To_CashApp.swift */,
 				C0969FD62B1F86340028BD61 /* ContentView.swift */,
+				C0BF53E82B2868F500C13C29 /* OnBoarding.swift */,
 				C0C09C382B207CC100AD7332 /* SingleCigaretteView.swift */,
 				C0C09C342B20692300AD7332 /* AddCigarette.swift */,
 				C0C09C3A2B2080E100AD7332 /* Emotion.swift */,
@@ -155,6 +158,7 @@
 				C0969FD52B1F86340028BD61 /* Ash_To_CashApp.swift in Sources */,
 				C0C09C392B207CC100AD7332 /* SingleCigaretteView.swift in Sources */,
 				C0C09C3B2B2080E100AD7332 /* Emotion.swift in Sources */,
+				C0BF53E92B2868F500C13C29 /* OnBoarding.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -288,7 +292,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Ash To Cash/Preview Content\"";
-				DEVELOPMENT_TEAM = HR24WHR326;
+				DEVELOPMENT_TEAM = K8483DQ4F6;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -301,7 +305,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.emanueledipietro.Ash-To-Cash";
+				PRODUCT_BUNDLE_IDENTIFIER = com.francescapiasasso;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -317,7 +321,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Ash To Cash/Preview Content\"";
-				DEVELOPMENT_TEAM = HR24WHR326;
+				DEVELOPMENT_TEAM = K8483DQ4F6;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -330,7 +334,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.emanueledipietro.Ash-To-Cash";
+				PRODUCT_BUNDLE_IDENTIFIER = com.francescapiasasso;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;

@@ -10,9 +10,17 @@ import SwiftData
 
 @main
 struct Ash_To_CashApp: App {
+    @AppStorage ("isOnboarding") var isOnboarding = true
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            if isOnboarding {
+                OnBoarding()
+                    .onDisappear {
+                        isOnboarding = false
+                    }
+            } else {
+                ContentView()
+            }
         }
         .modelContainer(for: CigaretteStore.self)
     }
