@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C09083342B28EAD40010C55F /* TestCharts.swift in Sources */ = {isa = PBXBuildFile; fileRef = C09083332B28EAD40010C55F /* TestCharts.swift */; };
 		C0969FD52B1F86340028BD61 /* Ash_To_CashApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0969FD42B1F86340028BD61 /* Ash_To_CashApp.swift */; };
 		C0969FD72B1F86340028BD61 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0969FD62B1F86340028BD61 /* ContentView.swift */; };
 		C0969FD92B1F86340028BD61 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C0969FD82B1F86340028BD61 /* Assets.xcassets */; };
@@ -16,9 +17,11 @@
 		C0C09C372B20697E00AD7332 /* CigaretteStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0C09C362B20697E00AD7332 /* CigaretteStore.swift */; };
 		C0C09C392B207CC100AD7332 /* SingleCigaretteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0C09C382B207CC100AD7332 /* SingleCigaretteView.swift */; };
 		C0C09C3B2B2080E100AD7332 /* Emotion.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0C09C3A2B2080E100AD7332 /* Emotion.swift */; };
+		C0E75D202B2B4DB6008F3C3D /* SmokingModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0E75D1F2B2B4DB6008F3C3D /* SmokingModal.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		C09083332B28EAD40010C55F /* TestCharts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestCharts.swift; sourceTree = "<group>"; };
 		C0969FD12B1F86340028BD61 /* Ash To Cash.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Ash To Cash.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C0969FD42B1F86340028BD61 /* Ash_To_CashApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ash_To_CashApp.swift; sourceTree = "<group>"; };
 		C0969FD62B1F86340028BD61 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -29,6 +32,7 @@
 		C0C09C362B20697E00AD7332 /* CigaretteStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CigaretteStore.swift; sourceTree = "<group>"; };
 		C0C09C382B207CC100AD7332 /* SingleCigaretteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleCigaretteView.swift; sourceTree = "<group>"; };
 		C0C09C3A2B2080E100AD7332 /* Emotion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Emotion.swift; sourceTree = "<group>"; };
+		C0E75D1F2B2B4DB6008F3C3D /* SmokingModal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmokingModal.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,6 +67,8 @@
 			children = (
 				C0969FD42B1F86340028BD61 /* Ash_To_CashApp.swift */,
 				C0969FD62B1F86340028BD61 /* ContentView.swift */,
+				C0E75D1F2B2B4DB6008F3C3D /* SmokingModal.swift */,
+				C09083332B28EAD40010C55F /* TestCharts.swift */,
 				C0BF53E82B2868F500C13C29 /* OnBoarding.swift */,
 				C0C09C382B207CC100AD7332 /* SingleCigaretteView.swift */,
 				C0C09C342B20692300AD7332 /* AddCigarette.swift */,
@@ -152,7 +158,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C09083342B28EAD40010C55F /* TestCharts.swift in Sources */,
 				C0C09C372B20697E00AD7332 /* CigaretteStore.swift in Sources */,
+				C0E75D202B2B4DB6008F3C3D /* SmokingModal.swift in Sources */,
 				C0969FD72B1F86340028BD61 /* ContentView.swift in Sources */,
 				C0C09C352B20692300AD7332 /* AddCigarette.swift in Sources */,
 				C0969FD52B1F86340028BD61 /* Ash_To_CashApp.swift in Sources */,
@@ -292,7 +300,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Ash To Cash/Preview Content\"";
-				DEVELOPMENT_TEAM = K8483DQ4F6;
+				DEVELOPMENT_TEAM = HR24WHR326;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -305,7 +313,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.francescapiasasso;
+				PRODUCT_BUNDLE_IDENTIFIER = com.emanueledipietro;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -321,7 +329,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Ash To Cash/Preview Content\"";
-				DEVELOPMENT_TEAM = K8483DQ4F6;
+				DEVELOPMENT_TEAM = HR24WHR326;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -334,7 +342,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.francescapiasasso;
+				PRODUCT_BUNDLE_IDENTIFIER = com.emanueledipietro;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;

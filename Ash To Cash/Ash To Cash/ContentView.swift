@@ -1,89 +1,74 @@
-//
-//  ContentView.swift
-//  Ash To Cash
-//
-//  Created by Emanuele Di Pietro on 05/12/23.
-//
-
 import SwiftUI
+import Charts
 import SwiftData
+
 struct ContentView: View {
     
-    @State private var showModalsheet = false
-    @State private var counter: Int = 0
     
+    @Environment(\.managedObjectContext) private var context
     @Query var cigarettes: [CigaretteStore]
-    @Environment (\.modelContext) var context
-//    @StateObject var viewModel = AverageEmotion()
-//    lazy var averageEmotion: Emotion = viewModel.calculateAverageEmotion()
-//    lazy var averageEmoji = averageEmotion.emoji
-//  
-    func calculateAverageEmotion() -> Emotion {
-           let totalEmotionValue = cigarettes.reduce(0) { $0 + $1.emotion.rawValue }
-           let averageValue = Float(totalEmotionValue) / Float(max(cigarettes.count, 1))
-           let roundedAverage = Int(round(averageValue))
 
-           print("Average emotion raw value: \(roundedAverage)") // Aggiungi questo per il debug
+    @State private var showModalsheet = false
 
-           return Emotion(rawValue: roundedAverage) ?? .neutral
-       }
-    
+    private func calculateAverageEmotion() -> String {
+        let totalEmotionValue = cigarettes.reduce(0) { $0 + $1.emotion.rawValue }
+        let averageValue = Float(totalEmotionValue) / Float(max(cigarettes.count, 1))
+        let roundedAverage = Int(round(averageValue))
+        return Emotion(rawValue: roundedAverage)?.emoji ?? Emotion.neutral.emoji
+    }
+
     var body: some View {
-            let averageEmotion = calculateAverageEmotion()
-            let averageEmoji = averageEmotion.emoji
-            NavigationStack{
-                VStack{
-                    List{
-                        Section{
-                            ForEach(cigarettes) { cigarette in
-                                SingleCigaretteView(cigarette: cigarette)
-                                    .swipeActions {
-                                        Button(role: .destructive) {
-                                            withAnimation {
-                                                context.delete(cigarette)
-                                            }
-                                        } label: {
-                                            Image(systemName: "bin")
-                                        }
-                                        
-                                    }
-                            }
-                            
-                        } header: {
-                            
-                            HStack(alignment: .center) {
-                                Text("\(cigarettes.count)")
-                                    .font(.system(size: 96))
-                                    .foregroundStyle(.black)
-                                Spacer()
-                                VStack(alignment: .trailing) {
-                                    Text("Average Mood")
-                                    withAnimation {
-                                        Text(averageEmoji)
-                                            .font(.largeTitle)
-                                    }
-                                }
-                            }
+        NavigationView {
+            List {
+                Section {
+                    ForEach(cigarettes.indices, id: \.self) { index in
+                        let cigarette = cigarettes[index]
+                        HStack {
+                            Text(cigarette.cigaretteName)
+                            Spacer()
+                            Text(cigarette.emotion.emoji)
                         }
                     }
                 }
-                .navigationTitle("Cigarette")
-                .toolbar {
-                    ToolbarItem (placement: .navigationBarTrailing) {
-                        Button(action: {
-                            showModalsheet = true
-                        }) {
-                            Image(systemName: "plus")
-                                .foregroundStyle(.blue)
-                        }
+
+                Chart {
+                    RuleMark(y: .value("Avarage", 3))
+                        .foregroundStyle(.indigo)
+                        .lineStyle(StrokeStyle(lineWidth: 1, dash: [5]))
+                    ForEach(cigarettes.indices, id: \.self) { index in
+                        LineMark(
+                            x: .value("Cigarette Count", index + 1),
+                            y: .value("Emotion", cigarettes[index].emotion.rawValue)
+                        )
+                        .symbol(by: .value("Emotion", cigarettes.indices))
                     }
                 }
-                .sheet(isPresented: $showModalsheet, content: {
-                    AddCigarette()
-                })
+                .frame(height: 200)
+                .foregroundStyle(.mint.gradient)
+                .chartYScale(domain: 1...5)
+            }
+            .navigationTitle("Cigarettes")
+            .toolbar {
+                ToolbarItem(placement: .navigationBarTrailing) {
+                    Button(action: { showModalsheet = true }) {
+                        Image(systemName: "plus")
+                    }
+                }
+            }
+            .sheet(isPresented: $showModalsheet) {
+                
+                    SmokingModal()
+                        .presentationDetents([.fraction(0.6)])
+            
             }
         }
+        .accessibilityLabel("Cigarettes list")
     }
+}
+
+
+
+// Ensure CigaretteStore conforms to Identifiable, Codable, and has a date property for sorting
 
 
 
