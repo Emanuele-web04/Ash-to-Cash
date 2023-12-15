@@ -10,59 +10,117 @@ struct ContentView: View {
 
     @State private var showModalsheet = false
 
-    private func calculateAverageEmotion() -> String {
+    func calculateAverageEmotion() -> Emotion {
         let totalEmotionValue = cigarettes.reduce(0) { $0 + $1.emotion.rawValue }
         let averageValue = Float(totalEmotionValue) / Float(max(cigarettes.count, 1))
         let roundedAverage = Int(round(averageValue))
-        return Emotion(rawValue: roundedAverage)?.emoji ?? Emotion.neutral.emoji
+        
+        print("Average emotion raw value: \(roundedAverage)") // Add this for debugging
+        
+        return Emotion(rawValue: roundedAverage) ?? .neutral
     }
+    
+    @StateObject var timerHandling = TimerHandling()
+    
+    @State private var animationGradient = false
 
     var body: some View {
+        
+        let averageEmotion = calculateAverageEmotion()
+        let averageEmoji = averageEmotion.emoji
+        
         NavigationView {
-            List {
-                Section {
-                    ForEach(cigarettes.indices, id: \.self) { index in
-                        let cigarette = cigarettes[index]
-                        HStack {
-                            Text(cigarette.cigaretteName)
-                            Spacer()
-                            Text(cigarette.emotion.emoji)
+            ScrollView {
+                VStack(alignment: .center, spacing: 20) {
+                    Spacer()
+                    Spacer()
+                    VStack {
+                        Text("Last time since you smoked").bold() 
+                        ZStack {
+                            RoundedRectangle(cornerRadius: 10 )
+                                .foregroundStyle(LinearGradient(colors: [.mint, .indigo], startPoint: .leading, endPoint: .bottomTrailing))
+                                .hueRotation(.degrees(animationGradient ? 45 : 0))
+                                .onAppear {
+                                    withAnimation(.easeInOut(duration: 5).repeatForever(autoreverses: true)) {
+                                        animationGradient.toggle()
+                                    }
+                                }
+                                .frame(height: 80)
+                            Text("\(timerHandling.timeString(time: timerHandling.timer))").font(.system(size: 40))
+                                .foregroundStyle(LinearGradient(colors: [.white, .white.opacity(0.7)], startPoint: .topLeading, endPoint: .bottomTrailing))
+                                .fontWeight(.light)
                         }
                     }
-                }
-
-                Chart {
-                    RuleMark(y: .value("Avarage", 3))
-                        .foregroundStyle(.indigo)
-                        .lineStyle(StrokeStyle(lineWidth: 1, dash: [5]))
-                    ForEach(cigarettes.indices, id: \.self) { index in
-                        LineMark(
-                            x: .value("Cigarette Count", index + 1),
-                            y: .value("Emotion", cigarettes[index].emotion.rawValue)
-                        )
-                        .symbol(by: .value("Emotion", cigarettes.indices))
+                    Spacer()
+                    HStack {
+                        Text("Your cigarettes for the day") .foregroundStyle(LinearGradient(colors: [.mint, .teal], startPoint: .leading, endPoint: .bottomTrailing))
+                        Spacer()
+                        Text("\(cigarettes.count)").font(.system(size: 32))
+                            .foregroundStyle(LinearGradient(colors: [.mint, .teal], startPoint: .leading, endPoint: .bottomTrailing))
                     }
+                    .padding()
+                    .overlay (
+                        RoundedRectangle(cornerRadius: 10)
+                            .stroke(lineWidth: 1.0)
+                            .foregroundStyle(LinearGradient(colors: [.mint, .teal], startPoint: .leading, endPoint: .bottomTrailing))
+                    )
+                    .padding(2)
+                    Spacer()
+                    HStack {
+                        Text("Your average mood") .foregroundStyle(LinearGradient(colors: [.indigo, .purple], startPoint: .leading, endPoint: .bottomTrailing))
+                        Spacer()
+                        withAnimation {
+                            Text(averageEmoji).font(.system(size: 32))
+                        }
+                    }
+                    .padding()
+                    .overlay (
+                        RoundedRectangle(cornerRadius: 10)
+                            .stroke(lineWidth: 1.0)
+                            .foregroundStyle(LinearGradient(colors: [.indigo, .purple], startPoint: .leading, endPoint: .bottomTrailing))
+                    )
+                    .padding(1)
+                    Spacer()
                 }
-                .frame(height: 200)
-                .foregroundStyle(.mint.gradient)
-                .chartYScale(domain: 1...5)
+                Spacer()
+                
             }
+            .padding()
             .navigationTitle("Cigarettes")
             .toolbar {
                 ToolbarItem(placement: .navigationBarTrailing) {
-                    Button(action: { showModalsheet = true }) {
-                        Image(systemName: "plus")
-                    }
+                   
+                        Button(action: {
+                           showModalsheet = true
+                        }, label: {
+                          
+                                Image(systemName: "plus.circle.fill")
+                                    .foregroundStyle(LinearGradient(colors: [.mint, .indigo], startPoint: .topLeading, endPoint: .bottomTrailing))
+                                    .opacity(0.7)
+                            
+                        })
+                    
                 }
             }
             .sheet(isPresented: $showModalsheet) {
                 
-                    SmokingModal()
+                    SmokingModal(timerHandling: timerHandling)
                         .presentationDetents([.fraction(0.6)])
             
             }
         }
         .accessibilityLabel("Cigarettes list")
+        .onAppear {
+            timerHandling.isRunning = true
+            print(timerHandling.isRunning ? "works" : "not works")
+        }
+        .onReceive(timerHandling.timerCount) { _ in
+            if timerHandling.isRunning {
+                timerHandling.timer += 1
+                print(timerHandling.timer)
+            }
+        }
+
     }
 }
 

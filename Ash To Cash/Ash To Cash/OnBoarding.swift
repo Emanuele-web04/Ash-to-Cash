@@ -11,15 +11,12 @@ import UIKit
 struct OnBoarding: View {
     @AppStorage ("isOnboarding") var isOnboarding : Bool?
     
+    @StateObject var userData = UserData()
     @State private var quitDate = Date()
-    @State private var cigarettesPerDay = 0
-    @State private var cigarettesInPack = 0
-    @State private var packPrice = 0.0
-    @State private var selectedCurrencyIndex = 0
     
     let currencies = ["$", "€", "£", "¥"]
     var selectedCurrencySymbol: String {
-        return currencies[selectedCurrencyIndex]
+        return currencies[userData.selectedCurrencyIndex]
     }
     
     @State private var currentQuestion = 1
@@ -90,9 +87,9 @@ struct OnBoarding: View {
                         .foregroundStyle(.mint)
                     Spacer()
                     
-                    TextField("0", value: $cigarettesPerDay, formatter: NumberFormatter()) .keyboardType(.numberPad)
+                    TextField("0", value: $userData.cigarettesPerDay, formatter: NumberFormatter()) .keyboardType(.numberPad)
                         .padding()
-                        .onChange(of: cigarettesPerDay) { _ in
+                        .onChange(of: userData.cigarettesPerDay) { _ in
                             isAnswerProvided = true
                         }
                         .bold()
@@ -119,11 +116,11 @@ struct OnBoarding: View {
                         .foregroundStyle(.mint)
                     Spacer()
                     
-                    TextField("0", value: $cigarettesInPack, formatter: NumberFormatter())
+                    TextField("0", value: $userData.cigarettesInPack, formatter: NumberFormatter())
                         .keyboardType(.numberPad)
                     //                        .textFieldStyle(RoundedBorderTextFieldStyle())
                         .padding()
-                        .onChange(of: cigarettesInPack) { _ in
+                        .onChange(of: userData.cigarettesInPack) { _ in
                             isAnswerProvided = true
                         }
                     
@@ -154,9 +151,9 @@ struct OnBoarding: View {
                                 .font(.system(size: 50))
                             Spacer()
                             Spacer()
-                            TextField("0", value: $packPrice, formatter: NumberFormatter())
+                            TextField("0", value: $userData.packPrice, formatter: NumberFormatter())
                                 .keyboardType(.decimalPad)
-                                .onChange(of: packPrice) { _ in
+                                .onChange(of: userData.packPrice) { _ in
                                     isAnswerProvided = true
                                 }
                                 .bold()
@@ -164,7 +161,7 @@ struct OnBoarding: View {
                                 .accessibilityLabel("Price of the pack")
                                 .padding(.trailing, 10)
                             Spacer()
-                            Picker("Change currency", selection: $selectedCurrencyIndex) {
+                            Picker("Change currency", selection: $userData.selectedCurrencyIndex) {
                                 ForEach(0..<currencies.count) {
                                     Text(self.currencies[$0])
                                 }
@@ -194,9 +191,9 @@ struct OnBoarding: View {
                         resetAnswerStatus()
                     } else if currentQuestion == 4 {
                         print("Quit Date: \(quitDate)")
-                        print("Cigarettes per Day: \(cigarettesPerDay)")
-                        print("Cigarettes in Pack: \(cigarettesInPack)")
-                        print("Pack Price: \(packPrice)")
+                        print("Cigarettes per Day: \(userData.cigarettesPerDay)")
+                        print("Cigarettes in Pack: \(userData.cigarettesInPack)")
+                        print("Pack Price: \(userData.packPrice)")
                         resetAnswerStatus()
                         withAnimation {
                             isOnboarding = false

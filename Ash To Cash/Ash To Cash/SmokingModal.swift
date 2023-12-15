@@ -10,6 +10,9 @@ import SwiftUI
 struct SmokingModal: View {
     
     @State private var showCigarette = false
+    @ObservedObject var timerHandling: TimerHandling
+
+    
     var body: some View {
         VStack {
             List {
@@ -51,13 +54,10 @@ struct SmokingModal: View {
                 )
             }
             .sheet(isPresented: $showCigarette, content: {
-                AddCigarette()
+                AddCigarette(timerHandling: timerHandling)
                     .presentationDetents([.fraction(1.0)])
             })
         }
     }
 }
 
-#Preview {
-    SmokingModal()
-}

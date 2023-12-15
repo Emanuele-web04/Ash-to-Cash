@@ -18,6 +18,10 @@
 		C0C09C392B207CC100AD7332 /* SingleCigaretteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0C09C382B207CC100AD7332 /* SingleCigaretteView.swift */; };
 		C0C09C3B2B2080E100AD7332 /* Emotion.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0C09C3A2B2080E100AD7332 /* Emotion.swift */; };
 		C0E75D202B2B4DB6008F3C3D /* SmokingModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0E75D1F2B2B4DB6008F3C3D /* SmokingModal.swift */; };
+		C0E75D222B2C5ACC008F3C3D /* TimerHandling.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0E75D212B2C5ACC008F3C3D /* TimerHandling.swift */; };
+		C0E75D242B2C90D5008F3C3D /* TabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0E75D232B2C90D5008F3C3D /* TabView.swift */; };
+		C0E75D262B2C9100008F3C3D /* ChartsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0E75D252B2C9100008F3C3D /* ChartsView.swift */; };
+		C0E75D282B2C9886008F3C3D /* UserData.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0E75D272B2C9886008F3C3D /* UserData.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -33,6 +37,10 @@
 		C0C09C382B207CC100AD7332 /* SingleCigaretteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleCigaretteView.swift; sourceTree = "<group>"; };
 		C0C09C3A2B2080E100AD7332 /* Emotion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Emotion.swift; sourceTree = "<group>"; };
 		C0E75D1F2B2B4DB6008F3C3D /* SmokingModal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmokingModal.swift; sourceTree = "<group>"; };
+		C0E75D212B2C5ACC008F3C3D /* TimerHandling.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerHandling.swift; sourceTree = "<group>"; };
+		C0E75D232B2C90D5008F3C3D /* TabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabView.swift; sourceTree = "<group>"; };
+		C0E75D252B2C9100008F3C3D /* ChartsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartsView.swift; sourceTree = "<group>"; };
+		C0E75D272B2C9886008F3C3D /* UserData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserData.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -67,11 +75,15 @@
 			children = (
 				C0969FD42B1F86340028BD61 /* Ash_To_CashApp.swift */,
 				C0969FD62B1F86340028BD61 /* ContentView.swift */,
+				C0E75D232B2C90D5008F3C3D /* TabView.swift */,
+				C0E75D252B2C9100008F3C3D /* ChartsView.swift */,
 				C0E75D1F2B2B4DB6008F3C3D /* SmokingModal.swift */,
 				C09083332B28EAD40010C55F /* TestCharts.swift */,
 				C0BF53E82B2868F500C13C29 /* OnBoarding.swift */,
+				C0E75D272B2C9886008F3C3D /* UserData.swift */,
 				C0C09C382B207CC100AD7332 /* SingleCigaretteView.swift */,
 				C0C09C342B20692300AD7332 /* AddCigarette.swift */,
+				C0E75D212B2C5ACC008F3C3D /* TimerHandling.swift */,
 				C0C09C3A2B2080E100AD7332 /* Emotion.swift */,
 				C0C09C362B20697E00AD7332 /* CigaretteStore.swift */,
 				C0969FD82B1F86340028BD61 /* Assets.xcassets */,
@@ -158,15 +170,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C0E75D282B2C9886008F3C3D /* UserData.swift in Sources */,
+				C0E75D242B2C90D5008F3C3D /* TabView.swift in Sources */,
 				C09083342B28EAD40010C55F /* TestCharts.swift in Sources */,
 				C0C09C372B20697E00AD7332 /* CigaretteStore.swift in Sources */,
 				C0E75D202B2B4DB6008F3C3D /* SmokingModal.swift in Sources */,
 				C0969FD72B1F86340028BD61 /* ContentView.swift in Sources */,
 				C0C09C352B20692300AD7332 /* AddCigarette.swift in Sources */,
 				C0969FD52B1F86340028BD61 /* Ash_To_CashApp.swift in Sources */,
+				C0E75D222B2C5ACC008F3C3D /* TimerHandling.swift in Sources */,
 				C0C09C392B207CC100AD7332 /* SingleCigaretteView.swift in Sources */,
 				C0C09C3B2B2080E100AD7332 /* Emotion.swift in Sources */,
 				C0BF53E92B2868F500C13C29 /* OnBoarding.swift in Sources */,
+				C0E75D262B2C9100008F3C3D /* ChartsView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

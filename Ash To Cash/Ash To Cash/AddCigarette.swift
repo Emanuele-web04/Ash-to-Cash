@@ -16,6 +16,8 @@ struct AddCigarette: View {
     @Environment (\.modelContext) var context
     @Environment (\.dismiss) var dismiss
    
+    
+    @ObservedObject var timerHandling: TimerHandling
 
     var body: some View {
         NavigationStack {
@@ -46,7 +48,8 @@ struct AddCigarette: View {
                             withAnimation {
                                 addCigarette()
                                 context.insert(cigarette)
-                                
+                                timerHandling.stopAndReset()
+                                timerHandling.startTimer()
                             }
                             dismiss()
                         }, label: {
@@ -101,9 +104,8 @@ struct CustomPicker: View {
             }
             Text(selectedEmotion.rawValue == 1 ? "Angry" : (selectedEmotion.rawValue == 2) ? "Sad" : (selectedEmotion.rawValue == 4) ? "Happy" : (selectedEmotion.rawValue == 5) ? "Excited" : "Normal")
                 .foregroundStyle(.white).opacity(0.8)
-            
         }
-        .animation(.easeInOut(duration: 0.7))
+        .animation(.easeInOut, value: 0.7)
     }
 }
 

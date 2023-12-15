@@ -11,6 +11,7 @@ import SwiftData
 @main
 struct Ash_To_CashApp: App {
     @AppStorage ("isOnboarding") var isOnboarding = true
+
     var body: some Scene {
         WindowGroup {
             if isOnboarding {
@@ -19,7 +20,7 @@ struct Ash_To_CashApp: App {
                         isOnboarding = false
                     }
             } else {
-                ContentView()
+                TabViews()
             }
         }
         .modelContainer(for: CigaretteStore.self)
