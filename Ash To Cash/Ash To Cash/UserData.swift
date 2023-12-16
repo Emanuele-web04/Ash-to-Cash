@@ -7,6 +7,13 @@
 import Foundation
 
 class UserData: ObservableObject {
+    
+    @Published var quitDate: Date {
+        didSet {
+            UserDefaults.standard.set(quitDate, forKey: "quitDate")
+        }
+    }
+    
     @Published var selectedCurrencyIndex: Int {
         didSet {
             UserDefaults.standard.set(selectedCurrencyIndex, forKey: "selectedCurrencyIndex")
@@ -36,6 +43,7 @@ class UserData: ObservableObject {
         self.cigarettesPerDay = UserDefaults.standard.integer(forKey: "cigarettesPerDay")
         self.cigarettesInPack = UserDefaults.standard.integer(forKey: "cigarettesInPack")
         self.packPrice = UserDefaults.standard.double(forKey: "packPrice")
+        self.quitDate = UserDefaults.standard.object(forKey: "quitDate") as? Date ?? Date()
     }
 }
 

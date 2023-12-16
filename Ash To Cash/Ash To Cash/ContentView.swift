@@ -6,6 +6,8 @@ struct ContentView: View {
     
     
     @Environment(\.managedObjectContext) private var context
+    @Environment (\.dismiss) var dismiss
+    
     @Query var cigarettes: [CigaretteStore]
 
     @State private var showModalsheet = false
@@ -89,7 +91,6 @@ struct ContentView: View {
             .navigationTitle("Cigarettes")
             .toolbar {
                 ToolbarItem(placement: .navigationBarTrailing) {
-                   
                         Button(action: {
                            showModalsheet = true
                         }, label: {
@@ -99,14 +100,11 @@ struct ContentView: View {
                                     .opacity(0.7)
                             
                         })
-                    
                 }
             }
             .sheet(isPresented: $showModalsheet) {
-                
-                    SmokingModal(timerHandling: timerHandling)
-                        .presentationDetents([.fraction(0.6)])
-            
+                SmokingModal(timerHandling: timerHandling)
+                    .presentationDetents([.fraction(0.6)])
             }
         }
         .accessibilityLabel("Cigarettes list")

@@ -10,10 +10,23 @@ import SwiftData
 import Charts
 
 struct ChartsView: View {
-    
+
     @Query var cigarettes: [CigaretteStore]
+    
     @EnvironmentObject var userData: UserData
     
+    @State private var today = Date()
+
+    
+    func dateDiff(from: Date, to: Date) -> DateComponents {
+        let components = Calendar.current.dateComponents([.day, .month, .year], from: from, to: to)
+        return components
+    }
+
+    // Nell'uso della funzione:
+    // Usa diffComponents per ottenere i giorni, i mesi o gli anni di differenza
+
+
     @State private var moneySaved = 0.0
     
     func calculateMoneySaved(money: Double) -> Double {
@@ -53,14 +66,34 @@ struct ChartsView: View {
     
     @State private var showInfoSheet = false
     
+    func formatMonthsAndDays(from components: DateComponents) -> String {
+        let months = components.month ?? 0
+        let days = components.day ?? 0
+        return "\(months) months and \(days) days"
+    }
+    
     var body: some View {
+
+        let quitDate = userData.quitDate
+        let diffComponents = dateDiff(from: today, to: quitDate)
+        let monthsDaysString = formatMonthsAndDays(from: diffComponents)
+
+
+            // Aggiorna 'today' per ottenere sempre la data corrent
         NavigationStack {
             ScrollView {
-                VStack(alignment: .leading, spacing: 10) {
-                    Spacer()
+                VStack(alignment: .leading) {
+                 
                     Text(comparisonCigarette(text: textDisplayed)).font(.system(size: 18))
                         .foregroundStyle(LinearGradient(colors: [.indigo, .purple], startPoint: .leading, endPoint: .bottomTrailing))
                         .padding()
+                    VStack (alignment: .leading) {
+                        Text("Time til your quitting day")
+                        Spacer()
+                        Text(monthsDaysString).bold()
+                    }.foregroundStyle(LinearGradient(colors: [.mint, .teal], startPoint: .leading, endPoint: .bottomTrailing))
+                        .padding()
+                    
                     Chart {
                         RuleMark(y: .value("Avarage", 3))
                             .foregroundStyle(.mint)
@@ -83,13 +116,14 @@ struct ChartsView: View {
                             .foregroundStyle(LinearGradient(colors: [.mint, .teal], startPoint: .leading, endPoint: .bottomTrailing))
                         Text("Money you will save in a year")
                         Spacer()
-                        Text(currencies(currency: currency)+""+String(format: "%.2f",calculateMoneySaved(money: moneySaved)))
+                        Text(currencies(currency: currency)+" "+String(format: "%.2f",calculateMoneySaved(money: moneySaved))).bold()
                     }
                     .padding()
                     .overlay (
                         RoundedRectangle(cornerRadius: 10)
                             .stroke(lineWidth: 1.0)
                             .foregroundStyle(LinearGradient(colors: [.mint, .teal], startPoint: .leading, endPoint: .bottomTrailing))
+                            .frame(height: 70)
                     )
                     .padding()
                     
@@ -111,10 +145,10 @@ struct ChartsView: View {
                         RoundedRectangle(cornerRadius: 10)
                             .stroke(lineWidth: 1.0)
                             .foregroundStyle(LinearGradient(colors: [.indigo, .purple], startPoint: .leading, endPoint: .bottomTrailing))
+                            .frame(height: 70)
                     )
                     .padding()
                     Spacer()
-                    
                 }
             }
             .navigationTitle("Progress")
@@ -130,7 +164,11 @@ struct ChartsView: View {
                 }
             }
         }
+        .sheet(isPresented: $showInfoSheet) {
+            QuittingSmokingView()
+        }
     }
+   
 }
 
 #Preview {

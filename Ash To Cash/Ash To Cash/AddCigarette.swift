@@ -16,7 +16,8 @@ struct AddCigarette: View {
     @Environment (\.modelContext) var context
     @Environment (\.dismiss) var dismiss
    
-    
+    @Binding var isAdded: Bool
+    @Binding var showCigarette: Bool
     @ObservedObject var timerHandling: TimerHandling
 
     var body: some View {
@@ -45,11 +46,13 @@ struct AddCigarette: View {
                             .frame(height: 50)
                             .foregroundStyle(.white)
                         Button(action: {
+                            isAdded = true
                             withAnimation {
                                 addCigarette()
                                 context.insert(cigarette)
                                 timerHandling.stopAndReset()
                                 timerHandling.startTimer()
+                                showCigarette = false
                             }
                             dismiss()
                         }, label: {

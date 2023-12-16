@@ -12,7 +12,6 @@ struct OnBoarding: View {
     @AppStorage ("isOnboarding") var isOnboarding : Bool?
     
     @StateObject var userData = UserData()
-    @State private var quitDate = Date()
     
     let currencies = ["$", "€", "£", "¥"]
     var selectedCurrencySymbol: String {
@@ -26,7 +25,7 @@ struct OnBoarding: View {
     var formattedQuitDate: String {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "dd MMMM yyyy"
-        return dateFormatter.string(from: quitDate)
+        return dateFormatter.string(from: userData.quitDate)
     }
     
     var body: some View {
@@ -58,13 +57,13 @@ struct OnBoarding: View {
                         .frame(width: 40, height: 40)
                         .foregroundStyle(.mint)
                     Spacer()
-                    DatePicker("Select Date", selection: $quitDate,
+                    DatePicker("Select Date", selection: $userData.quitDate,
                                in: ...Date(timeIntervalSince1970: TimeInterval(2050 * 365 * 24 * 60 * 60)),
                                displayedComponents: [.date])
                     .datePickerStyle(WheelDatePickerStyle())
                     .labelsHidden()
                     Spacer()
-                        .onChange(of: quitDate) { _ in
+                        .onChange(of: userData.quitDate) { _ in
                             isAnswerProvided = true
                         }
                         .colorMultiply(Color.mint)
@@ -190,7 +189,7 @@ struct OnBoarding: View {
                         currentProgress += 0.25
                         resetAnswerStatus()
                     } else if currentQuestion == 4 {
-                        print("Quit Date: \(quitDate)")
+                        print("Quit Date: \(userData.quitDate)")
                         print("Cigarettes per Day: \(userData.cigarettesPerDay)")
                         print("Cigarettes in Pack: \(userData.cigarettesInPack)")
                         print("Pack Price: \(userData.packPrice)")

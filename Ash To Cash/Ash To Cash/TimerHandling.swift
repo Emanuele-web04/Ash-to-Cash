@@ -30,4 +30,13 @@ class TimerHandling: ObservableObject {
         
         return String(format: "%02d:%02d:%02d", days, hours, minutes)
     }
+    
+    func updateTimerBasedOnBackgroundTime() {
+            if let backgroundTime = UserDefaults.standard.object(forKey: "backgroundTime") as? Date {
+                let timeElapsed = Date().timeIntervalSince(backgroundTime)
+                // Aggiorna il timer in base a timeElapsed
+                // Ad esempio, potresti voler decrementare il timer di timeElapsed
+                timer -= Double(Int(timeElapsed))
+            }
+    }
 }
