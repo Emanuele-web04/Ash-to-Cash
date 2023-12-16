@@ -69,9 +69,14 @@ struct SmokingModal: View {
                 }
             }
             .sheet(isPresented: $showQuitView, content: {
-                    QuitView()
+                    QuitView(isAdded: $isAdded)
                     .presentationDetents([.large])
                 })
+            .onChange(of: showQuitView) { newValue in
+                if !newValue {
+                    dismiss()
+                }
+            }
         }
     }
     private func close() {

@@ -20,7 +20,9 @@ struct Ash_To_CashApp: App {
                         isOnboarding = false
                     }
             } else {
-                TabViews()
+                withAnimation {
+                    TabViews()
+                }
             }
         }
         .modelContainer(for: CigaretteStore.self)

@@ -88,7 +88,7 @@ struct ContentView: View {
                 
             }
             .padding()
-            .navigationTitle("Cigarettes")
+            .navigationTitle("Today")
             .toolbar {
                 ToolbarItem(placement: .navigationBarTrailing) {
                         Button(action: {

@@ -12,7 +12,7 @@ struct QuitView: View {
     
     @Environment(\.presentationMode) private var presentationMode
 
-    
+    @Binding var isAdded: Bool
     let quotes : [String] = [
         "Quitting smoking is not a sacrifice; it's an investment in a brighter future.", // [1]
         "The smoke you inhale today may suffocate your dreams tomorrow. Break free and let your dreams breathe.", // [2]
@@ -53,6 +53,7 @@ struct QuitView: View {
                             .foregroundStyle(.white)
                         Button(action: {
                             presentationMode.wrappedValue.dismiss()
+                            isAdded = true
                         }, label: {
                             Text("Ok, I won't smoke")
                                 .bold()

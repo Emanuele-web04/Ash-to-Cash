@@ -26,7 +26,21 @@ struct ChartsView: View {
     // Nell'uso della funzione:
     // Usa diffComponents per ottenere i giorni, i mesi o gli anni di differenza
 
-
+    @State private var percentage = 0
+    
+    func x(percentage: Double) -> Int {
+        let cigarettesPerDay = userData.cigarettesPerDay
+        let mineCigarette = cigarettes.count
+        let comparison = (mineCigarette * 100)/cigarettesPerDay
+        if comparison < 100 {
+            return 100 - (mineCigarette * 100)/cigarettesPerDay
+        } else if comparison == 100 {
+            return (mineCigarette * 100)/cigarettesPerDay
+        } else {
+            return (mineCigarette * 100)/cigarettesPerDay
+        }
+    }
+    
     @State private var moneySaved = 0.0
     
     func calculateMoneySaved(money: Double) -> Double {
@@ -126,27 +140,36 @@ struct ChartsView: View {
                             .frame(height: 70)
                     )
                     .padding()
-                    
-                    HStack {
-                        Text("Yours: ")
-                        Text("\(cigarettes.count)")
-                            .font(.system(size: 20))
-                            .foregroundStyle(LinearGradient(colors: [.indigo, .purple], startPoint: .leading, endPoint: .bottomTrailing))
-                        Spacer()
-                        Text("VS").font(.system(size: 20))
-                            .foregroundStyle(LinearGradient(colors: [.indigo, .purple], startPoint: .leading, endPoint: .bottomTrailing))
-                        Spacer()
-                        Text("Average: ")
-                        Text(String(userData.cigarettesPerDay)).font(.system(size: 20))
-                            .foregroundStyle(LinearGradient(colors: [.indigo, .purple], startPoint: .leading, endPoint: .bottomTrailing))
+                    VStack(alignment: .leading) {
+                        HStack {
+                            Text("Yours: ")
+                            Text("\(cigarettes.count)")
+                                .font(.system(size: 20))
+                                .foregroundStyle(LinearGradient(colors: [.indigo, .purple], startPoint: .leading, endPoint: .bottomTrailing))
+                            Spacer()
+                            Text("VS").font(.system(size: 20))
+                                .foregroundStyle(LinearGradient(colors: [.indigo, .purple], startPoint: .leading, endPoint: .bottomTrailing))
+                            Spacer()
+                            Text("Average: ")
+                            Text(String(userData.cigarettesPerDay)).font(.system(size: 20))
+                                .foregroundStyle(LinearGradient(colors: [.indigo, .purple], startPoint: .leading, endPoint: .bottomTrailing))
+                        }
+                        .padding()
+                        .overlay (
+                            RoundedRectangle(cornerRadius: 10)
+                                .stroke(lineWidth: 1.0)
+                                .foregroundStyle(LinearGradient(colors: [.indigo, .purple], startPoint: .leading, endPoint: .bottomTrailing))
+                                .frame(height: 70)
+                        )
+                        HStack(spacing: 0) {
+                            Text(String(Int(x(percentage: Double(percentage)))))
+                                .font(.caption).foregroundStyle(.gray)
+                            Text("\(x(percentage: Double(percentage)) <= 100 ? "% better than your average" : "% worse than your average")")
+                                .font(.caption).foregroundStyle(.gray)
+                        }
+                        .padding(.top, 5)
+                        
                     }
-                    .padding()
-                    .overlay (
-                        RoundedRectangle(cornerRadius: 10)
-                            .stroke(lineWidth: 1.0)
-                            .foregroundStyle(LinearGradient(colors: [.indigo, .purple], startPoint: .leading, endPoint: .bottomTrailing))
-                            .frame(height: 70)
-                    )
                     .padding()
                     Spacer()
                 }

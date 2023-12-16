@@ -43,16 +43,15 @@ struct GifImage_Previews: PreviewProvider {
     }
 }
 
-
-
-
-
 struct QuittingSmokingView: View {
     var body: some View {
         ScrollView {
             VStack(alignment: .leading, spacing: 10) {
-                GifImage("LungLoop").scaledToFit()
-                .cornerRadius(20)
+                VStack(alignment: .leading) {
+                    GifImage("LungLoop").scaledToFit()
+                        .cornerRadius(20)
+                    Text("- Made by: Samira Rasouliilkhechi").font(.caption).foregroundStyle(.gray).bold()
+                }
                 Text("Cosa Succede Quando Si Smette di Fumare Gradualmente?")
                     .font(.title)
                     .fontWeight(.bold)

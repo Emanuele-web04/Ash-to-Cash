@@ -13,6 +13,11 @@ struct OnBoarding: View {
     
     @StateObject var userData = UserData()
     
+    @FocusState var isTextFieldFocused: FocusField?
+    enum FocusField {
+        case cig, pack, currency
+    }
+    
     let currencies = ["$", "€", "£", "¥"]
     var selectedCurrencySymbol: String {
         return currencies[userData.selectedCurrencyIndex]
@@ -86,7 +91,24 @@ struct OnBoarding: View {
                         .foregroundStyle(.mint)
                     Spacer()
                     
-                    TextField("0", value: $userData.cigarettesPerDay, formatter: NumberFormatter()) .keyboardType(.numberPad)
+                    TextField("0", value: $userData.cigarettesPerDay, formatter: NumberFormatter()).focused($isTextFieldFocused, equals: .cig)
+                        .keyboardType(.numberPad)
+                        .toolbar {
+                            ToolbarItem(placement: .keyboard) {
+                                Spacer()
+                            }
+                            ToolbarItem(placement: .keyboard) {
+                                Button(action: {
+                                    isTextFieldFocused = nil
+                                }) {
+                                    Image(systemName: "keyboard.chevron.compact.down")
+                                        .resizable()
+                                        .frame(width: 20, height: 20)
+                                        .foregroundStyle(.mint)
+                                        .fontWeight(.regular)
+                                }
+                            }
+                        }
                         .padding()
                         .onChange(of: userData.cigarettesPerDay) { _ in
                             isAnswerProvided = true
@@ -116,13 +138,27 @@ struct OnBoarding: View {
                     Spacer()
                     
                     TextField("0", value: $userData.cigarettesInPack, formatter: NumberFormatter())
-                        .keyboardType(.numberPad)
-                    //                        .textFieldStyle(RoundedBorderTextFieldStyle())
+                        .keyboardType(.numberPad).focused($isTextFieldFocused, equals: .pack)
+                        .toolbar {
+                            ToolbarItem(placement: .keyboard) {
+                                Spacer()
+                            }
+                            ToolbarItem(placement: .keyboard) {
+                                Button(action: {
+                                    isTextFieldFocused = nil
+                                }) {
+                                    Image(systemName: "keyboard.chevron.compact.down")
+                                        .resizable()
+                                        .frame(width: 20, height: 20)
+                                        .foregroundStyle(.mint)
+                                        .fontWeight(.regular)
+                                }
+                            }
+                        }
                         .padding()
                         .onChange(of: userData.cigarettesInPack) { _ in
                             isAnswerProvided = true
                         }
-                    
                         .bold()
                         .font(.system(size: 50))
                         .multilineTextAlignment(.center)
@@ -150,8 +186,24 @@ struct OnBoarding: View {
                                 .font(.system(size: 50))
                             Spacer()
                             Spacer()
-                            TextField("0", value: $userData.packPrice, formatter: NumberFormatter())
+                            TextField("0", value: $userData.packPrice, formatter: NumberFormatter()).focused($isTextFieldFocused, equals: .pack)
                                 .keyboardType(.decimalPad)
+                                .toolbar {
+                                    ToolbarItem(placement: .keyboard) {
+                                        Spacer()
+                                    }
+                                    ToolbarItem(placement: .keyboard) {
+                                        Button(action: {
+                                            isTextFieldFocused = nil
+                                        }) {
+                                            Image(systemName: "keyboard.chevron.compact.down")
+                                                .resizable()
+                                                .frame(width: 20, height: 20)
+                                                .foregroundStyle(.mint)
+                                                .fontWeight(.regular)
+                                        }
+                                    }
+                                }
                                 .onChange(of: userData.packPrice) { _ in
                                     isAnswerProvided = true
                                 }
@@ -196,23 +248,22 @@ struct OnBoarding: View {
                         resetAnswerStatus()
                         withAnimation {
                             isOnboarding = false
+                            isTextFieldFocused = nil
                         }
                     }
                 }
             }) {
                 ZStack {
                     RoundedRectangle(cornerRadius: 10 )
-                        .frame(height: 40)
+                        .frame(height: 50)
                         .foregroundStyle(isAnswerProvided ? Color.indigo : Color.gray)
                     NavigationLink(destination:  ContentView(), label: {
-                    
                         Text("Next")
                             .fontWeight(.bold)
                             .foregroundColor(.white)
                     })
                 }
             }
-            .padding()
             .disabled(!isAnswerProvided)
         }
         .padding()
