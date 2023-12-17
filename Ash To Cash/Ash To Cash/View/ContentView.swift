@@ -47,10 +47,13 @@ struct ContentView: View {
                                         animationGradient.toggle()
                                     }
                                 }
-                                .frame(height: 80)
-                            Text("\(timerHandling.timeString(time: timerHandling.timer))").font(.system(size: 40))
-                                .foregroundStyle(LinearGradient(colors: [.white, .white.opacity(0.7)], startPoint: .topLeading, endPoint: .bottomTrailing))
-                                .fontWeight(.light)
+                                .frame(height: 100)
+                            VStack {
+                                Text("\(timerHandling.timeString(time: timerHandling.timer))").font(.system(size: 40))
+                                    .foregroundStyle(LinearGradient(colors: [.white, .white.opacity(0.7)], startPoint: .topLeading, endPoint: .bottomTrailing))
+                                    .fontWeight(.light)
+                                Text("Days : Hours : Minutes")
+                            }
                         }
                     }
                     Spacer()

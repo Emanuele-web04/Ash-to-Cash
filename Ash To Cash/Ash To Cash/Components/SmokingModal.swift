@@ -37,7 +37,7 @@ struct SmokingModal: View {
                     .padding()
                 }
                 .frame(height: 120)
-                .listRowBackground( LinearGradient(colors: [.mint, .teal], startPoint: .leading, endPoint: .bottomTrailing))
+                .listRowBackground(LinearGradient(colors: [.mint, .teal], startPoint: .leading, endPoint: .bottomTrailing))
                 Section {
                     Button(action: {
                         showCigarette = true
