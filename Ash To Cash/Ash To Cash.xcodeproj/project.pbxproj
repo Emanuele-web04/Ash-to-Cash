@@ -11,11 +11,9 @@
 		C0969FD72B1F86340028BD61 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0969FD62B1F86340028BD61 /* ContentView.swift */; };
 		C0969FD92B1F86340028BD61 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C0969FD82B1F86340028BD61 /* Assets.xcassets */; };
 		C0969FDC2B1F86340028BD61 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C0969FDB2B1F86340028BD61 /* Preview Assets.xcassets */; };
-		C0A32DFC2B2DE3B0001AFDD7 /* exampleonboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0A32DFB2B2DE3B0001AFDD7 /* exampleonboard.swift */; };
 		C0BF53E92B2868F500C13C29 /* OnBoarding.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0BF53E82B2868F500C13C29 /* OnBoarding.swift */; };
-		C0C09C352B20692300AD7332 /* AddCigarette.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0C09C342B20692300AD7332 /* AddCigarette.swift */; };
+		C0C09C352B20692300AD7332 /* AddCigaretteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0C09C342B20692300AD7332 /* AddCigaretteView.swift */; };
 		C0C09C372B20697E00AD7332 /* CigaretteStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0C09C362B20697E00AD7332 /* CigaretteStore.swift */; };
-		C0C09C392B207CC100AD7332 /* SingleCigaretteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0C09C382B207CC100AD7332 /* SingleCigaretteView.swift */; };
 		C0C09C3B2B2080E100AD7332 /* Emotion.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0C09C3A2B2080E100AD7332 /* Emotion.swift */; };
 		C0E75D202B2B4DB6008F3C3D /* SmokingModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0E75D1F2B2B4DB6008F3C3D /* SmokingModal.swift */; };
 		C0E75D222B2C5ACC008F3C3D /* TimerHandling.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0E75D212B2C5ACC008F3C3D /* TimerHandling.swift */; };
@@ -33,11 +31,9 @@
 		C0969FD62B1F86340028BD61 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		C0969FD82B1F86340028BD61 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C0969FDB2B1F86340028BD61 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		C0A32DFB2B2DE3B0001AFDD7 /* exampleonboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = exampleonboard.swift; sourceTree = "<group>"; };
 		C0BF53E82B2868F500C13C29 /* OnBoarding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnBoarding.swift; sourceTree = "<group>"; };
-		C0C09C342B20692300AD7332 /* AddCigarette.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCigarette.swift; sourceTree = "<group>"; };
+		C0C09C342B20692300AD7332 /* AddCigaretteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCigaretteView.swift; sourceTree = "<group>"; };
 		C0C09C362B20697E00AD7332 /* CigaretteStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CigaretteStore.swift; sourceTree = "<group>"; };
-		C0C09C382B207CC100AD7332 /* SingleCigaretteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleCigaretteView.swift; sourceTree = "<group>"; };
 		C0C09C3A2B2080E100AD7332 /* Emotion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Emotion.swift; sourceTree = "<group>"; };
 		C0E75D1F2B2B4DB6008F3C3D /* SmokingModal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmokingModal.swift; sourceTree = "<group>"; };
 		C0E75D212B2C5ACC008F3C3D /* TimerHandling.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerHandling.swift; sourceTree = "<group>"; };
@@ -80,22 +76,10 @@
 			isa = PBXGroup;
 			children = (
 				C0969FD42B1F86340028BD61 /* Ash_To_CashApp.swift */,
-				C0E75D302B2CF120008F3C3D /* LungLoop.gif */,
-				C0969FD62B1F86340028BD61 /* ContentView.swift */,
-				C0E75D232B2C90D5008F3C3D /* TabView.swift */,
-				C0E75D252B2C9100008F3C3D /* ChartsView.swift */,
-				C0E75D292B2CE505008F3C3D /* QuitView.swift */,
-				C0E75D1F2B2B4DB6008F3C3D /* SmokingModal.swift */,
-				C0E75D2B2B2CE5FF008F3C3D /* QuittingSmokingView.swift */,
-				C0BF53E82B2868F500C13C29 /* OnBoarding.swift */,
-				C0A32DFB2B2DE3B0001AFDD7 /* exampleonboard.swift */,
-				C0E75D272B2C9886008F3C3D /* UserData.swift */,
-				C0C09C382B207CC100AD7332 /* SingleCigaretteView.swift */,
-				C0C09C342B20692300AD7332 /* AddCigarette.swift */,
-				C0E75D212B2C5ACC008F3C3D /* TimerHandling.swift */,
-				C0C09C3A2B2080E100AD7332 /* Emotion.swift */,
-				C0C09C362B20697E00AD7332 /* CigaretteStore.swift */,
-				C0969FD82B1F86340028BD61 /* Assets.xcassets */,
+				C0F6C4902B2F887C00F68D47 /* Asset */,
+				C0F6C48F2B2F87A000F68D47 /* Components */,
+				C0F6C48E2B2F879000F68D47 /* DataStorage */,
+				C0F6C48D2B2F878700F68D47 /* View */,
 				C0969FDA2B1F86340028BD61 /* Preview Content */,
 			);
 			path = "Ash To Cash";
@@ -107,6 +91,48 @@
 				C0969FDB2B1F86340028BD61 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		C0F6C48D2B2F878700F68D47 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				C0E75D232B2C90D5008F3C3D /* TabView.swift */,
+				C0969FD62B1F86340028BD61 /* ContentView.swift */,
+				C0E75D252B2C9100008F3C3D /* ChartsView.swift */,
+				C0BF53E82B2868F500C13C29 /* OnBoarding.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		C0F6C48E2B2F879000F68D47 /* DataStorage */ = {
+			isa = PBXGroup;
+			children = (
+				C0E75D212B2C5ACC008F3C3D /* TimerHandling.swift */,
+				C0E75D272B2C9886008F3C3D /* UserData.swift */,
+				C0C09C3A2B2080E100AD7332 /* Emotion.swift */,
+				C0C09C362B20697E00AD7332 /* CigaretteStore.swift */,
+			);
+			path = DataStorage;
+			sourceTree = "<group>";
+		};
+		C0F6C48F2B2F87A000F68D47 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				C0E75D1F2B2B4DB6008F3C3D /* SmokingModal.swift */,
+				C0E75D292B2CE505008F3C3D /* QuitView.swift */,
+				C0C09C342B20692300AD7332 /* AddCigaretteView.swift */,
+				C0E75D2B2B2CE5FF008F3C3D /* QuittingSmokingView.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		C0F6C4902B2F887C00F68D47 /* Asset */ = {
+			isa = PBXGroup;
+			children = (
+				C0E75D302B2CF120008F3C3D /* LungLoop.gif */,
+				C0969FD82B1F86340028BD61 /* Assets.xcassets */,
+			);
+			path = Asset;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -185,13 +211,11 @@
 				C0C09C372B20697E00AD7332 /* CigaretteStore.swift in Sources */,
 				C0E75D202B2B4DB6008F3C3D /* SmokingModal.swift in Sources */,
 				C0969FD72B1F86340028BD61 /* ContentView.swift in Sources */,
-				C0C09C352B20692300AD7332 /* AddCigarette.swift in Sources */,
+				C0C09C352B20692300AD7332 /* AddCigaretteView.swift in Sources */,
 				C0969FD52B1F86340028BD61 /* Ash_To_CashApp.swift in Sources */,
 				C0E75D222B2C5ACC008F3C3D /* TimerHandling.swift in Sources */,
 				C0E75D2A2B2CE505008F3C3D /* QuitView.swift in Sources */,
 				C0E75D2C2B2CE5FF008F3C3D /* QuittingSmokingView.swift in Sources */,
-				C0C09C392B207CC100AD7332 /* SingleCigaretteView.swift in Sources */,
-				C0A32DFC2B2DE3B0001AFDD7 /* exampleonboard.swift in Sources */,
 				C0C09C3B2B2080E100AD7332 /* Emotion.swift in Sources */,
 				C0BF53E92B2868F500C13C29 /* OnBoarding.swift in Sources */,
 				C0E75D262B2C9100008F3C3D /* ChartsView.swift in Sources */,

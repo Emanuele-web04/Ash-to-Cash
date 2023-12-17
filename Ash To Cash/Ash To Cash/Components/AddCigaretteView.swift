@@ -8,7 +8,7 @@
 import SwiftUI
 import SwiftData
 
-struct AddCigarette: View {
+struct AddCigaretteView: View {
     
     @State private var selectedEmotion: Emotion = .neutral  // Default emotion
     

@@ -95,7 +95,7 @@ struct ContentView: View {
                            showModalsheet = true
                         }, label: {
                           
-                                Image(systemName: "plus.circle.fill")
+                                Image(systemName: "plus.circle")
                                     .foregroundStyle(LinearGradient(colors: [.mint, .indigo], startPoint: .topLeading, endPoint: .bottomTrailing))
                                     .opacity(0.7)
                             

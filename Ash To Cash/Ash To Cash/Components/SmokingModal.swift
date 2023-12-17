@@ -60,7 +60,7 @@ struct SmokingModal: View {
                 )
             }
             .sheet(isPresented: $showCigarette, content: {
-                    AddCigarette(isAdded: $isAdded, showCigarette: $showCigarette, timerHandling: timerHandling)
+                    AddCigaretteView(isAdded: $isAdded, showCigarette: $showCigarette, timerHandling: timerHandling)
                     .presentationDetents([.large])
                 })
             .onChange(of: showCigarette) { newValue in
