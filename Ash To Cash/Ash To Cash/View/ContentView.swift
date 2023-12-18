@@ -37,7 +37,7 @@ struct ContentView: View {
                     Spacer()
                     Spacer()
                     VStack {
-                        Text("Last time since you smoked").bold() 
+                        Text("Last time since you smoked").bold()
                         ZStack {
                             RoundedRectangle(cornerRadius: 10 )
                                 .foregroundStyle(LinearGradient(colors: [.mint, .indigo], startPoint: .leading, endPoint: .bottomTrailing))
@@ -47,13 +47,10 @@ struct ContentView: View {
                                         animationGradient.toggle()
                                     }
                                 }
-                                .frame(height: 100)
-                            VStack {
-                                Text("\(timerHandling.timeString(time: timerHandling.timer))").font(.system(size: 40))
-                                    .foregroundStyle(LinearGradient(colors: [.white, .white.opacity(0.7)], startPoint: .topLeading, endPoint: .bottomTrailing))
-                                    .fontWeight(.light)
-                                Text("Days : Hours : Minutes")
-                            }
+                                .frame(height: 80)
+                            Text("\(timerHandling.timeString(time: timerHandling.timer))").font(.system(size: 40))
+                                .foregroundStyle(LinearGradient(colors: [.white, .white.opacity(0.7)], startPoint: .topLeading, endPoint: .bottomTrailing))
+                                .fontWeight(.light)
                         }
                     }
                     Spacer()
@@ -98,7 +95,7 @@ struct ContentView: View {
                            showModalsheet = true
                         }, label: {
                           
-                                Image(systemName: "plus.circle")
+                                Image(systemName: "plus.circle.fill")
                                     .foregroundStyle(LinearGradient(colors: [.mint, .indigo], startPoint: .topLeading, endPoint: .bottomTrailing))
                                     .opacity(0.7)
                             

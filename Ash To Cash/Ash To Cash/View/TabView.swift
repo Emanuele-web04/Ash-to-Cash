@@ -25,6 +25,7 @@ struct TabViews: View {
                             Image(systemName: "calendar")
                                 .resizable()
                                 .frame(width: 25, height: 25)
+                                .accessibilityHidden(true)
                         }
                         Text("Today")
                             .font(.caption)
@@ -38,6 +39,7 @@ struct TabViews: View {
                             Image(systemName: "chart.xyaxis.line")
                                 .resizable()
                                 .frame(width: 25, height: 25)
+                                .accessibilityHidden(true)
                         }
                         Text("Progress")
                             .font(.caption)

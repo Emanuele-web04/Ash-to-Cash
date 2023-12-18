@@ -61,6 +61,7 @@ struct OnBoarding: View {
                         .resizable()
                         .frame(width: 40, height: 40)
                         .foregroundStyle(.mint)
+                        .accessibilityHidden(true)
                     Spacer()
                     DatePicker("Select Date", selection: $userData.quitDate,
                                in: ...Date(timeIntervalSince1970: TimeInterval(2050 * 365 * 24 * 60 * 60)),
@@ -89,6 +90,7 @@ struct OnBoarding: View {
                         .resizable()
                         .frame(width: 40, height: 40)
                         .foregroundStyle(.mint)
+                        .accessibilityHidden(true)
                     Spacer()
                     
                     TextField("0", value: $userData.cigarettesPerDay, formatter: NumberFormatter()).focused($isTextFieldFocused, equals: .cig)
@@ -102,6 +104,7 @@ struct OnBoarding: View {
                                     isTextFieldFocused = nil
                                 }) {
                                     Image(systemName: "keyboard.chevron.compact.down")
+                                    
                                         .resizable()
                                         .frame(width: 20, height: 20)
                                         .foregroundStyle(.mint)
@@ -135,6 +138,7 @@ struct OnBoarding: View {
                     Image(systemName: "12.lane").resizable()
                         .frame(width: 40, height: 35)
                         .foregroundStyle(.mint)
+                        .accessibilityHidden(true)
                     Spacer()
                     
                     TextField("0", value: $userData.cigarettesInPack, formatter: NumberFormatter())
@@ -178,6 +182,7 @@ struct OnBoarding: View {
                     Image(systemName: "dollarsign.circle").resizable()
                         .frame(width: 40, height: 40)
                         .foregroundStyle(.mint)
+                        .accessibilityHidden(true)
                     Spacer()
                     VStack() {
                         HStack(spacing: 20){
@@ -275,8 +280,5 @@ struct OnBoarding: View {
 }
 
 
-struct ContentView_Previews: PreviewProvider {
-    static var previews: some View {
-        OnBoarding()
-    }
-}
+
+

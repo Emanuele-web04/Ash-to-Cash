@@ -50,43 +50,50 @@ struct QuittingSmokingView: View {
                 VStack(alignment: .leading) {
                     GifImage("LungLoop").scaledToFit()
                         .cornerRadius(20)
+                        .accessibilityHidden(true)
                     Text("- Made by: Samira Rasouliilkhechi").font(.caption).foregroundStyle(.gray).bold()
+                        .accessibilityHidden(true)
                 }
-                Text("Cosa Succede Quando Si Smette di Fumare Gradualmente?")
+                Text("What Happens When You Quit Smoking Gradually?")
                     .font(.title)
                     .fontWeight(.bold)
 
-                Text("1. Dopo 20 minuti: ")
+                Text("1. After 20 minutes: ")
                     .fontWeight(.semibold)
-                Text("La pressione sanguigna e la frequenza del polso ritornano normali.")
+                Text("The blood pressure and pulse rate return to normal.")
 
-                Text("2. Dopo 12 ore: ")
+                Text("2. After 12 hours: ")
                     .fontWeight(.semibold)
-                Text("I livelli di monossido di carbonio nel sangue tornano normali.")
+                Text("Levels of carbon monoxide in blood return to normal.")
 
-                Text("3. Dopo 2-12 settimane: ")
+                Text("3. After 48 hours: ")
                     .fontWeight(.semibold)
-                Text("Migliora la circolazione sanguigna e aumenta la funzione polmonare.")
+                Text("The sense of taste and smell are improved.")
 
-                Text("4. Dopo 1-9 mesi: ")
+                Text("4. After 1-9 months: ")
                     .fontWeight(.semibold)
-                Text("Diminuiscono la tosse e la difficoltà respiratoria.")
+                Text("The body rids itself of the presence of nicotine. The lungs are less fatigued and coughing disappears. Walking becomes easier and physical energy increases, as well as the sense of fatigue and exhaustion are lessened.")
 
-                Text("5. Dopo 1 anno: ")
+                Text("5. After 1 year: ")
                     .fontWeight(.semibold)
-                Text("Il rischio di malattie cardiache è circa la metà rispetto a un fumatore.")
+                Text("The risk of desease decreases by 50 %.")
 
-                Text("6. Dopo 5 anni: ")
+                Text("6. After 5 years: ")
                     .fontWeight(.semibold)
-                Text("Il rischio di ictus è ridotto a quello di un non fumatore.")
+                Text("The risk of cerebral hemorrhage drops by 41 %, while the risk of stroke becomes equal to the levels of those who have never smoked. For women former smokers, the threat of getting diabetes falls to the level of women who have never smoked.")
 
-                Text("7. Dopo 10 anni: ")
+                Text("7. After 10 years: ")
                     .fontWeight(.semibold)
-                Text("Il rischio di cancro ai polmoni è circa la metà rispetto a un fumatore.")
+                Text("Even for men, the risk of diabetes falls to the levels of nonsmokers. Moreover, are reduced also the risk of ulcers and possibility to develop cancers of the mouth, throat, esophagus,bladder, kidney, pancreas; the risk of lung cancer drops by up to 70 %.")
 
-                Text("8. Dopo 15 anni: ")
+                Text("8. After 15 years: ")
                     .fontWeight(.semibold)
-                Text("Il rischio di malattie cardiache è lo stesso di una persona che non ha mai fumato.")
+                Text("Many factors return to normality, on par with those who have never smoked in their lives. In particular, conditions equalize for tooth loss, coronary heart disease, and generic risk of early death.")
+                
+                Text("8. After 20 years: ")
+                    .fontWeight(.semibold)
+                Text("The lungs of an ex-smoker are completely healed and can be considered the same as those of an individual who has never smoked.")
+                
             }
             .padding()
         }

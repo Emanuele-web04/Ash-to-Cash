@@ -126,6 +126,7 @@ struct ChartsView: View {
                     
                     HStack {
                         Image(systemName: "dollarsign.circle")
+                            .accessibilityHidden(true)
                             .font(.system(size: 20))
                             .foregroundStyle(LinearGradient(colors: [.mint, .teal], startPoint: .leading, endPoint: .bottomTrailing))
                         Text("Money you will save in a year")
@@ -181,6 +182,7 @@ struct ChartsView: View {
                         showInfoSheet = true
                     } label: {
                         Image(systemName: "info.circle")
+                            .accessibilityHidden(true)
                             .foregroundStyle(LinearGradient(colors: [.mint, .indigo], startPoint: .topLeading, endPoint: .bottomTrailing))
                     }
 

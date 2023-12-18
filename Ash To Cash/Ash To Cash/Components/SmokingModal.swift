@@ -28,6 +28,7 @@ struct SmokingModal: View {
                                 .resizable()
                                 .frame(width: 50, height: 55)
                                 .foregroundStyle(LinearGradient(colors: [.white, .white.opacity(0.5)], startPoint: .topLeading, endPoint: .bottomTrailing))
+                                .accessibilityHidden(true)
                             Text("I'm about to smoke")
                                 .font(.system(size: 20))
                                 .foregroundStyle(.white).opacity(0.8)
@@ -37,7 +38,7 @@ struct SmokingModal: View {
                     .padding()
                 }
                 .frame(height: 120)
-                .listRowBackground(LinearGradient(colors: [.mint, .teal], startPoint: .leading, endPoint: .bottomTrailing))
+                .listRowBackground( LinearGradient(colors: [.mint, .teal], startPoint: .leading, endPoint: .bottomTrailing))
                 Section {
                     Button(action: {
                         showCigarette = true
@@ -47,6 +48,7 @@ struct SmokingModal: View {
                                 .resizable()
                                 .frame(width: 50, height: 50)
                                 .foregroundStyle(LinearGradient(colors: [.white, .white.opacity(0.5)], startPoint: .topLeading, endPoint: .bottomTrailing))
+                                .accessibilityHidden(true)
                             Text("I already smoked...")
                                 .font(.system(size: 20))
                                 .foregroundStyle(.white).opacity(0.8)
@@ -60,7 +62,7 @@ struct SmokingModal: View {
                 )
             }
             .sheet(isPresented: $showCigarette, content: {
-                    AddCigaretteView(isAdded: $isAdded, showCigarette: $showCigarette, timerHandling: timerHandling)
+                    AddCigarette(isAdded: $isAdded, showCigarette: $showCigarette, timerHandling: timerHandling)
                     .presentationDetents([.large])
                 })
             .onChange(of: showCigarette) { newValue in
