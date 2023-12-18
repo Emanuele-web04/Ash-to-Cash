@@ -43,14 +43,18 @@ struct ContentView: View {
                                 .foregroundStyle(LinearGradient(colors: [.mint, .indigo], startPoint: .leading, endPoint: .bottomTrailing))
                                 .hueRotation(.degrees(animationGradient ? 45 : 0))
                                 .onAppear {
-                                    withAnimation(.easeInOut(duration: 5).repeatForever(autoreverses: true)) {
+                                    withAnimation(.easeInOut(duration: 3).repeatForever(autoreverses: true)) {
                                         animationGradient.toggle()
                                     }
                                 }
                                 .frame(height: 80)
-                            Text("\(timerHandling.timeString(time: timerHandling.timer))").font(.system(size: 40))
-                                .foregroundStyle(LinearGradient(colors: [.white, .white.opacity(0.7)], startPoint: .topLeading, endPoint: .bottomTrailing))
-                                .fontWeight(.light)
+                            VStack {
+                                Text("\(timerHandling.timeString(time: timerHandling.timer))").font(.system(size: 40))
+                                    .foregroundStyle(LinearGradient(colors: [.white, .white.opacity(0.7)], startPoint: .topLeading, endPoint: .bottomTrailing))
+                                    .fontWeight(.light)
+                                Text("Days  :  Hours  :  Minutes").foregroundStyle(LinearGradient(colors: [.white, .white.opacity(0.8)], startPoint: .leading, endPoint: .trailing)).bold()
+                                    .font(.system(size: 14))
+                            }
                         }
                     }
                     Spacer()

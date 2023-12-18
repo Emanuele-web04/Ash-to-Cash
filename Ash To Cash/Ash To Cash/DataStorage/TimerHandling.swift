@@ -51,6 +51,6 @@ class TimerHandling: ObservableObject {
         let minutes = (Int(time) / 60) % 60
         let hours = (Int(time) / 3600) % 24
         let days = Int(time) / 86400
-        return String(format: "%02d:%02d:%02d", days, hours, minutes)
+        return String(format: "%02d : %02d : %02d", days, hours, minutes)
     }
 }
